@@ -39,12 +39,12 @@ int main(int argc, char *argv[], char **envp) {
 			&pi) // Pointer to PROCESS_INFORMATION structure
 			== FALSE) {
 
-			// most common problem is that the program was not found.
+			// program was not found
 			printf("could not create process with path = (%s)\n", line);
 			// send error information to stderr stream
 			fprintf(stderr, "CreateProcess() failed on error %d\n", GetLastError());
 		}
-		// Wait until child process exits. (look this up on MSDN)
+		// Wait until child process exits.
 		WaitForSingleObject(pi.hProcess, INFINITE);
 		// Close process and thread handles.
 		CloseHandle(pi.hProcess);
